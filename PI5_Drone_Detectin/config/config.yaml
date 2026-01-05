@@ -1,0 +1,30 @@
+camera:
+  resolution_width: 1280
+  resolution_height: 720
+
+detection:
+  backend: "cpu"        # cpu | hailo (later)
+  model_path: "models/yolov5s.pt"
+  confidence_threshold: 0.4
+  inference_interval: 0.2   # seconds (VERY IMPORTANT)
+
+tracking:
+  lock_frames: 3
+  lost_frames: 5
+  deadzone: 0.03            # normalized image error
+
+pan_tilt:
+  pan_min: 0
+  pan_max: 270
+  tilt_min: -10
+  tilt_max: 60
+  pan_home: 135
+  tilt_home: 20
+  max_step_deg: 1.5         # per update
+
+scan:
+  pan_speed_deg_per_sec: 15
+
+kalman:
+  process_noise: 0.05
+  measurement_noise: 0.2
